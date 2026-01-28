@@ -5,7 +5,7 @@ const cors = require('cors');
 const { Pool } = require('pg');
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors());
@@ -13,19 +13,19 @@ app.use(express.json());
 
 // Подключение к БД
 const pool = new Pool({
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  database: process.env.DB_NAME,
   user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
   password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
 });
 
 // Проверка подключения
 pool.query('SELECT NOW()', (err) => {
   if (err) {
-    console.error('❌ Не удалось подключиться к БД:', err.message);
+    console.error('Не удалось подключиться к БД:', err.message);
   } else {
-    console.log('✅ Подключение к PostgreSQL установлено');
+    console.log('Подключение к PostgreSQL установлено');
   }
 });
 
@@ -74,6 +74,6 @@ app.get('/api', (req, res) => {
 
 // Запуск сервера
 app.listen(PORT, () => {
-  console.log(`🚀 Сервер запущен на http://localhost:${PORT}`);
-  console.log(`📄 Данные NPC: http://localhost:${PORT}/api/npc`);
+  console.log(`Сервер запущен на http://localhost:${PORT}`);
+  console.log(`Данные NPC: http://localhost:${PORT}/api/npc`);
 });
