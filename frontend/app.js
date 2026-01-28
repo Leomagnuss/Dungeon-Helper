@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const appDiv = document.getElementById('app');
 
-  fetch('http://localhost:3000/api/npc')
+  fetch('http://localhost:3001/api/npc')
     .then(response => response.json())
     .then(npcs => {
       if (npcs.length === 0) {
