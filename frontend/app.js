@@ -15,8 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
             <tr>
               <th>Имя</th>
               <th>Раса</th>
+              <th>Возраст</th>
               <th>Класс</th>
               <th>Город</th>
+              <th>Пол</th>
+              <th>Соц.репутация</th>
+              <th>Гос.Отношения</th>
             </tr>
           </thead>
           <tbody>
@@ -27,9 +31,13 @@ document.addEventListener('DOMContentLoaded', () => {
           <tr>
             <td>${npc.name || '—'}</td>
             <td>${npc.race || '—'}</td>
+            <td>${npc.age_count || '—'}</td>
             <td>${npc.class || '—'}</td>
             <td>${npc.towns || '—'}</td>
-          </tr>
+            <td>${npc.gender || '—'}</td>
+            <td>${npc.sociability || '—'}</td>
+            <td>${npc.staterelations || '—'}</td>
+            </tr>
         `;
       });
 
